@@ -1,0 +1,34 @@
+#box {
+    width:45%;
+    perspective:1200px;
+    float:left;
+    margin-left:30%;
+}
+.content {
+    float:left;
+    width:30%;
+    border:1px solid red;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    color:red;
+}
+.content-click {
+    background:rgba(139,0,0,0.6);
+    color:white;
+    font-size:18px;
+    text-align:center;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.content-click:hover {
+    background:rgba(139,0,0,1);
+}
+.active {
+    background:goldenrod;
+    color:white;
+}

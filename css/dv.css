@@ -1,0 +1,65 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.btn{
+    width: 90px;
+    height: 40px;
+    background-color: lightgreen;
+    color: white;
+    font-size: 18px;
+    font-family: "微软雅黑";
+    text-align: center;
+    line-height: 40px;
+    align-content: center;
+}
+.box1{
+    position: absolute;
+    width: 230px;
+    height: 100px;
+    margin: 10px 50px;
+    top:150px;
+    left: 60%;
+    background-color: gold;
+    color: black;
+    border-radius: 8%;
+    font-size: 30px;
+    text-align: center;
+    line-height: 100px;
+}
+.box2{
+    position: absolute;
+    width: 230px;
+    height: 100px;
+    margin: 10px 50px;
+    top: 300px;
+    left: 60%;
+    background-color: gold;
+    color: black;
+    border-radius: 8%;
+    font-size: 30px;
+    text-align: center;
+    line-height: 100px;
+}
+.circular1{
+    width: 50px;
+    height: 30px;
+    border-radius: 16px;
+    background-color: #ccc;
+    transition: .3s;
+    cursor: pointer;
+}
+.round-button1{
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 5px rgba(0,0,0,.5);
+    transition: .3s;
+    position: relative;
+    left: 0;
+}
+.round-button1:hover{
+    transform: scale(1.2);
+    box-shadow: 0 1px 8px rgba(0,0,0,.5);
+}

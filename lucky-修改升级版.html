@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>抽奖系统-修改升级版</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="css/div1.css">
+</head>
+<body>
+<input type = "button" class = "btn" id = "start" value = "开始选人">
+<input type = "button" class = "btn" id = "stop" value = "停止">
+<div id = "number" class = "box1"></div>
+<div id="box">
+    <div class="content content-1">iphone12</div>
+    <div class="content content-2">谢谢惠顾</div>
+    <div class="content content-3">现金500</div>
+    <div class="content content-8">谢谢惠顾</div>
+    <div class="content content-click">
+        <div id="text">
+            <div>点击抽奖</div>
+            <div>您还有<span class="number">3</span>次抽奖机会</div>
+        </div>
+    </div>
+    <div class="content content-4">大嘴巴子</div>
+    <div class="content content-7">谢谢惠顾</div>
+    <div class="content content-6">加一分</div>
+    <div class="content content-5">华为mate40</div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        // 定义数组，存放人员
+        var list1 = [ '涂图','白浩彤','周子杰','李海征','赵奕博','赵帅','吴泓锋','张可欣','介袁宇'];
+
+        //为开始按钮绑定点击事件
+        $("#start").click(function(){
+            // 定义一个变量去接受它每次的状态
+            functionId = setInterval(function(){// 利用setInterval()函数进行人员名字切换
+                var n = Math.floor(Math.random() * list1.length);
+                $("#number").html(list1[n]);
+            },30);
+        });
+
+        //为停止按钮绑定点击事件
+        $("#stop").click(function(){
+            clearInterval(functionId);// 清除setInterval()，并停止
+        });
+    })
+
+    //抽奖环节
+    $('.content').height($('.content').width()+'px');
+    $(window).resize(function(){
+        $('.content').height($('.content').width()+'px');
+    })
+    function time(a){
+        return function(){
+            if(a>8){
+                a=parseInt(a%8);
+                if(a==0){
+                    a=8;
+                }
+            }
+            $('.content').removeClass('active');
+            $('.content-'+a).addClass('active');
+        }
+    }
+    //在旋转的时候不能再次被点击
+    var t=true
+    $('.content-click').click(function(){
+        if(t){
+            t=false;
+            //产生随机数
+            var prize=Math.ceil(Math.random()*($('.content').length-1));
+            if($('.number').html()>0){
+                $('.number').html($('.number').html()-1);
+                //默认先转3圈
+                prize+=32;
+                for(var i=1;i<=prize;i++){
+                    setTimeout(time(i),6*i*i);
+                }
+                setTimeout(function(){
+                    t=true;
+                },6*prize*prize)
+            }else{
+                alert('您没有抽奖机会了')
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
